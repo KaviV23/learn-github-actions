@@ -15,10 +15,7 @@ jobs:
   build:
 
     # Matrix.os is a array variable with 3 OSes. This job will execute on 3 of the respective runners
-    runs-on: ${{matrix.os}}
-    strategy:
-      matrix:
-        os: [ubuntu-latest, windows-latest, macOS-latest]
+    runs-on: ubuntu-latest
     permissions:
       contents: read
 
@@ -27,8 +24,8 @@ jobs:
     - name: Set up JDK 1.8
       uses: actions/setup-java@v4 # sets up Java
       with:
-        java-version: '8'
-        distribution: "corretto"
+        java-version: 8
+        distribution: corretto
 
     - name: Setup Gradle
       uses: gradle/actions/setup-gradle@af1da67850ed9a4cedd57bfd976089dd991e2582 # v4.0.0
